@@ -2,6 +2,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
+var emoji = require('node-emoji')
 const {generateMessage, generateLocationMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
@@ -17,15 +18,14 @@ var users = new Users();
 app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
-  console.log('New user connected');
 
   socket.on('join',(params,callback)=>{
     if (!isRealString(params.name) || !isRealString(params.room)) {
-      return callback('Name and room name are required');
+      return callback('Name and room name are required '+emoji.get('disappointed_relieved'));
     }
 
     if(users.userNameExists(params.name)){
-      return callback('The user name <'+params.name+'> was already taken. Please use another one.');
+      return callback('The user name <'+params.name+'> was already taken. Please use another one '+emoji.get('disappointed_relieved'));
     }
 
     socket.join(params.room);
@@ -34,8 +34,8 @@ io.on('connection', (socket) => {
 
     io.to(params.room).emit('updateUserList',users.getUserList(params.room));
 
-    socket.emit('newMessage',generateMessage('Admin',params.name+', welcome to the chat App! '));
-    socket.broadcast.to(params.room).emit('newMessage',generateMessage('Admin','user '+params.name+' has joined!'));
+    socket.emit('newMessage',generateMessage('Admin',params.name+', welcome to the chat App! '+emoji.get('smiley')));
+    socket.broadcast.to(params.room).emit('newMessage',generateMessage('Admin','user '+params.name+' has joined! '+ emoji.get('star')));
     callback();
   });
 
@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
     var user = users.removeUser(socket.id);
     if (user != null){
       io.to(user.room).emit('updateUserList', users.getUserList(user.room));
-      io.to(user.room).emit('newMessage', generateMessage('Admin', user.name+' has left.'));
+      io.to(user.room).emit('newMessage', generateMessage('Admin', user.name+' has left '+emoji.get('moon')));
     }
   });
 });

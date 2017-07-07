@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <title>Chat | ChatApp</title>
@@ -8,24 +7,27 @@
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body class="chat">
-  <div class="chat__sidebar">
-    <h3>Online users</h3>
-    <div id="users">
+    <div class="chat__sidebar">
+      <div class="return">
+        <a href="index.html"><h4>Return to login</h4></a>
+      </div>
+      <h3>Online users</h3>
+      <div id="users">
 
+      </div>
     </div>
-  </div>
 
-  <div class="chat__main">
-    <ol id="messages" class="chat__messages">
-    </ol>
-    <div class="chat__footer">
-      <form id="message-form">
-        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
-        <button>Send</button>
-      </form>
-      <button id="send-location" type="button">Send location</button>
+    <div class="chat__main">
+      <ol id="messages" class="chat__messages">
+      </ol>
+      <div class="chat__footer">
+        <form id="message-form">
+          <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+          <button>Send</button>
+        </form>
+        <button id="send-location" type="button">Send location</button>
+      </div>
     </div>
-  </div>
 
   <script id="message-template" type="text/template">
     <p>
@@ -52,7 +54,7 @@
         </div>
         <div class="message__body">
           <p>
-            <a href="{{url}}" target="_blank">My current location</a>
+            <a href="{{url}}" target="_blank">🌍 My current location 🌎</a>
           </p>
         </div>
       </li>

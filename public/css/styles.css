@@ -7,6 +7,19 @@
   font-size: .95rem;
 }
 
+a{
+  text-decoration: none;
+  margin-top: : 20px;
+}
+a :hover{
+  color: snow;
+  font-weight: 650;
+}
+a :visited{
+  font-weight: 650;
+  color: snow;
+}
+
 ul, li {
   list-style-position: inside;
 }
@@ -15,6 +28,12 @@ h3 {
   font-weight: 600;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.return h4 {
+  font-weight: 550;
+  text-align: center;
+  font-size: 1rem;
 }
 
 button {
@@ -44,12 +63,12 @@ button:disabled {
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+  /*background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(50,20,129,1) 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1)));
+  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);
+  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);
+  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);*/
+  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(50,20,129,1) 100%); /* w3c */
 }
 
 .centered-form__form {
@@ -87,12 +106,12 @@ button:disabled {
   overflow-y: scroll;
   width: 260px;
   height: 100vh;
-  background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+  /*background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1)));
+  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);
+  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);
+  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%);*/
+  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(50,20,129,1) 100%); /* w3c */
 }
 
 .chat__sidebar h3 {
@@ -192,4 +211,23 @@ button:disabled {
   .chat__footer button {
     margin-right: 0px;
   }
+}
+
+.return{
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.5rem;
+  color:white;
+}
+
+#upper_div{
+  width: 100%;
+  height: 20%;
+  display: block;
+}
+
+#lower_div{
+  width: 100%;
+  height: 80%;
+  display: block;
 }
