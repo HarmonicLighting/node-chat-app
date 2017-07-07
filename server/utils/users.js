@@ -30,6 +30,15 @@ class Users{
     }
   }
 
+  userNameExists(name){
+    var user = this.users.filter((user)=>user.name == name);
+    if (user.length < 1){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
   getUserList(room){
     var users = this.users.filter((user)=>user.room === room);
     var namesArray = users.map((user)=> user.name);

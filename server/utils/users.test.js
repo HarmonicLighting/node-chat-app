@@ -51,7 +51,7 @@ describe('Users',()=>{
     expect(users.users.length).toBe(nUsers);
   });
 
-  it('Should find an user',()=>{
+  it('Should get an user',()=>{
     const nUsers = users.users.length;
     const user = users.getUser('1');
     expect(user).toNotBe(null);
@@ -60,10 +60,24 @@ describe('Users',()=>{
     expect(users.users.length).toBe(nUsers);
   });
 
-  it('Should not find an user',()=>{
+  it('Should not get an user',()=>{
     const nUsers = users.users.length;
     const user = users.getUser('10');
     expect(user).toBe(null);
+    expect(users.users.length).toBe(nUsers);
+  });
+
+  it('Should find an user by name',()=>{
+    const nUsers = users.users.length;
+    const found = users.userNameExists('Mike');
+    expect(found).toBe(true);
+    expect(users.users.length).toBe(nUsers);
+  });
+
+  it('Should not find an user by name',()=>{
+    const nUsers = users.users.length;
+    const found = users.userNameExists('Someone');
+    expect(found).toBe(false);
     expect(users.users.length).toBe(nUsers);
   });
 

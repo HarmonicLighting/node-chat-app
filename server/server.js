@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
       return callback('Name and room name are required');
     }
 
+    if(users.userNameExists(params.name)){
+      return callback('The user name <'+params.name+'> was already taken. Please use another one.');
+    }
+
     socket.join(params.room);
     users.removeUser(socket.id);
     users.addUser(socket.id,params.name,params.room);
@@ -36,13 +40,19 @@ io.on('connection', (socket) => {
   });
 
   socket.on('createMessage',(message,callback)=>{
-    console.log('createMessage',message);
-    io.emit('newMessage',generateMessage(message.from,message.text));
+    var user = users.getUser(socket.id);
+
+    if(user != null && isRealString(message.text)){
+      io.to(user.room).emit('newMessage',generateMessage(user.name,message.text));
+    }
     callback();
   });
 
   socket.on('createLocationMessage', (coords) => {
-    io.emit('newLocationMessage',generateLocationMessage('Admin',coords.latitude,coords.longitude));
+    var user = users.getUser(socket.id);
+    if (user != null) {
+      io.to(user.room).emit('newLocationMessage',generateLocationMessage(user.name,coords.latitude,coords.longitude));
+    }
   });
 
   socket.on('disconnect', () => {
